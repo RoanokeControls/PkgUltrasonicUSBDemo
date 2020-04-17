@@ -6,13 +6,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="UltrasonicUSBDemo", # Replace with your own username
-    version="1.6.2",
+    version="1.6.3",
     author="Roanoke Electronic Controls, Inc.",
     author_email="info@roanokecontrols.com",
     description="Demonstrates communication with different USB ultrasonic devices",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/RoanokeControls/PkgUltrasonicUSBDemo",
     packages=setuptools.find_packages(),
      include_package_data=True,
     package_data={

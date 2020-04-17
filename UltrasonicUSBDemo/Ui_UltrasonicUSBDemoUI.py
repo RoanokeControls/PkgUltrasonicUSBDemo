@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Ultrasonic USB Demo             Version 1.6.2"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Ultrasonic USB Demo             Version 1.6.3"))
         self.demoTypeComboBox.setItemText(0, _translate("MainWindow", "UM0034-002 Proximity"))
         self.demoTypeComboBox.setItemText(1, _translate("MainWindow", "UM0017 Water Level"))
         self.demoTypeComboBox.setItemText(2, _translate("MainWindow", "UM0090 Proximity"))
