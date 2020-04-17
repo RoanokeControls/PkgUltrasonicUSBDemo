@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="UltrasonicUSBDemo", # Replace with your own username
-    version="1.6.3",
+    version="1.6.4",
     author="Roanoke Electronic Controls, Inc.",
     author_email="info@roanokecontrols.com",
     description="Demonstrates communication with different USB ultrasonic devices",
