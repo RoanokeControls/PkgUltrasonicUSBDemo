@@ -14,9 +14,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/RoanokeControls/PkgUltrasonicUSBDemo",
     packages=setuptools.find_packages(),
-     include_package_data=True,
     package_data={
-        "UltrasonicUSBDemo": ["image/*"],
+        "UltrasonicUSBDemo": ["image/*","fs000x.xml"],
     },
     classifiers=[
         "Programming Language :: Python :: 3",

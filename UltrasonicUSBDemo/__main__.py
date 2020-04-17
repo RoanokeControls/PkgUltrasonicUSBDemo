@@ -1,12 +1,14 @@
 import sys
 import os.path
+import pkg_resources
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 from PyQt5.QtGui import QPixmap
-from Ui_UltrasonicUSBDemoUI import Ui_MainWindow
+#from . import Ui_UltrasonicUSBDemoUI
+#from Ui_UltrasonicUSBDemoUI import Ui_MainWindow
 import serial
 import glob
 import os
@@ -20,6 +22,95 @@ UM0034 = 0
 UM0017 = 1
 UM0090 = 2
 FS000x = 3
+
+
+#from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(851, 673)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        MainWindow.setFont(font)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.demoTypeComboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.demoTypeComboBox.setObjectName("demoTypeComboBox")
+        self.demoTypeComboBox.addItem("")
+        self.demoTypeComboBox.addItem("")
+        self.demoTypeComboBox.addItem("")
+        self.demoTypeComboBox.addItem("")
+        self.horizontalLayout.addWidget(self.demoTypeComboBox)
+        self.ComPortComboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.ComPortComboBox.setObjectName("ComPortComboBox")
+        self.horizontalLayout.addWidget(self.ComPortComboBox)
+        self.ComOpen = QtWidgets.QPushButton(self.centralwidget)
+        self.ComOpen.setObjectName("ComOpen")
+        self.horizontalLayout.addWidget(self.ComOpen)
+        self.rescanButton = QtWidgets.QPushButton(self.centralwidget)
+        self.rescanButton.setObjectName("rescanButton")
+        self.horizontalLayout.addWidget(self.rescanButton)
+        self.horizontalLayout.setStretch(0, 2)
+        self.horizontalLayout.setStretch(1, 4)
+        self.horizontalLayout.setStretch(2, 1)
+        self.horizontalLayout.setStretch(3, 1)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.labelImage = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.labelImage.sizePolicy().hasHeightForWidth())
+        self.labelImage.setSizePolicy(sizePolicy)
+        self.labelImage.setMaximumSize(QtCore.QSize(16777213, 16777215))
+        self.labelImage.setText("")
+        self.labelImage.setObjectName("labelImage")
+        self.horizontalLayout_3.addWidget(self.labelImage)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.ReceiveMemo = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.ReceiveMemo.setReadOnly(True)
+        self.ReceiveMemo.setMaximumBlockCount(1000)
+        self.ReceiveMemo.setCenterOnScroll(True)
+        self.ReceiveMemo.setObjectName("ReceiveMemo")
+        self.horizontalLayout_2.addWidget(self.ReceiveMemo)
+        self.buttonLayout = QtWidgets.QVBoxLayout()
+        self.buttonLayout.setObjectName("buttonLayout")
+        self.horizontalLayout_2.addLayout(self.buttonLayout)
+        self.horizontalLayout_2.setStretch(0, 1)
+        self.horizontalLayout_2.setStretch(1, 1)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.setStretch(0, 1)
+        self.verticalLayout.setStretch(1, 2)
+        self.verticalLayout.setStretch(2, 10)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Ultrasonic USB Demo           Version 1.6.4"))
+        self.demoTypeComboBox.setItemText(0, _translate("MainWindow", "UM0034-002 Proximity"))
+        self.demoTypeComboBox.setItemText(1, _translate("MainWindow", "UM0017 Water Level"))
+        self.demoTypeComboBox.setItemText(2, _translate("MainWindow", "UM0090 Proximity"))
+        self.demoTypeComboBox.setItemText(3, _translate("MainWindow", "FS000x Smart Flow Meter"))
+        self.ComOpen.setText(_translate("MainWindow", "Open"))
+        self.rescanButton.setText(_translate("MainWindow", "ReScan"))
+
+ 
+
+
 
 def serial_ports():
     if sys.platform.startswith('win'):
@@ -173,7 +264,8 @@ class MainWindow(QMainWindow):
         print(os.path.dirname(__file__))
 
         if(gcvars.demoType == UM0034):
-            fn = os.path.join(application_path, 'image/um0034_banner.png')
+#            fn = os.path.join(application_path, 'image/um0034_banner.png')
+            fn = os.path.join(application_path, pkg_resources.resource_filename(__name__, 'image/um0034_banner.png'))
             self.ui.labelImage.setPixmap(QPixmap(fn))
             newparm = UltrasonicParameter()
             newparm.index = 0
@@ -195,7 +287,8 @@ class MainWindow(QMainWindow):
             self.ui.parmbutton[0].show()
 
         elif(gcvars.demoType == UM0017):
-            fn = os.path.join(application_path, 'image/um0017_banner.png')
+#            fn = os.path.join(application_path, 'image/um0017_banner.png')
+            fn = os.path.join(application_path, pkg_resources.resource_filename(__name__, 'image/um0017_banner.png'))
             self.ui.labelImage.setPixmap(QPixmap(fn))
             newparm = UltrasonicParameter()
             newparm.index = 0
@@ -217,7 +310,8 @@ class MainWindow(QMainWindow):
             self.ui.parmbutton[0].show()
 
         elif(gcvars.demoType == UM0090):
-            fn = os.path.join(application_path, 'image/um0090_banner.png')
+#            fn = os.path.join(application_path, 'image/um0090_banner.png')
+            fn = os.path.join(application_path, pkg_resources.resource_filename(__name__, 'image/um0090_banner.png'))
             self.ui.labelImage.setPixmap(QPixmap(fn))
             newparm = UltrasonicParameter()
             newparm.index = 0
@@ -239,7 +333,8 @@ class MainWindow(QMainWindow):
             self.ui.parmbutton[0].show()
 
         elif(gcvars.demoType == FS000x):
-            fn = os.path.join(application_path, 'image/fs000x_banner.png')
+#            fn = os.path.join(application_path, 'image/fs000x_banner.png')
+            fn = os.path.join(application_path, pkg_resources.resource_filename(__name__, 'image/fs000x_banner.png'))
             self.ui.labelImage.setPixmap(QPixmap(fn))
             fn = os.path.join(application_path, 'fs000x.xml')
 
@@ -791,13 +886,16 @@ class MainWindow(QMainWindow):
                                 else:
                                     self.ui.ReceiveMemo.appendPlainText("Checksum Failed "+"".join(format(x,'02x') for x in look_buffer[0:look_buffer_index])+" Expected {:X}".format(read_checksum))
 
+def main():
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
 
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
+    timer = QTimer()
+    timer.timeout.connect(window.tick)
+    timer.start(50)
 
-timer = QTimer()
-timer.timeout.connect(window.tick)
-timer.start(50)
+    app.exec_()
 
-app.exec_()
+if __name__ == "__main__":
+    main()    
