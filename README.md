@@ -5,7 +5,7 @@ that incorporate USB interfaces
 
 # Installation
 
-Install Python 3.8.2 or higher from [www.python.org](www.python.org) 
+Install Python 3.8.2 or higher from [www.python.org](https://www.python.org) 
 
 During install, add Python to the system path
 
