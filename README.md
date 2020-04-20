@@ -13,3 +13,8 @@ Open a Command Prompt or Terminal, and issue these commands
 
     pip install UltrasonicUSBDemo
     python -m UltrasonicUSBDemo
+
+If Python 2.7 is installed and being used as the python interpreter, change the above commands to reference python3 : 
+
+    pip3 install UltrasonicUSBDemo
+    python3 -m UltrasonicUSBDemo
