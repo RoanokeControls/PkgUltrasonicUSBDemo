@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Ultrasonic USB Demo           Version 1.6.4"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Ultrasonic USB Demo           Version 1.6.5"))
         self.demoTypeComboBox.setItemText(0, _translate("MainWindow", "UM0034-002 Proximity"))
         self.demoTypeComboBox.setItemText(1, _translate("MainWindow", "UM0017 Water Level"))
         self.demoTypeComboBox.setItemText(2, _translate("MainWindow", "UM0090 Proximity"))
@@ -272,7 +272,7 @@ class MainWindow(QMainWindow):
             newparm.readonly = 1
             newparm.showhex = 0
             newparm.value = 0
-            newparm.name = "Distance (cm)"
+            newparm.name = "Distance (mm)"
             gcvars.UltrasonicParmList.append(newparm)
             xloc = 10
             yloc = 5
@@ -282,7 +282,7 @@ class MainWindow(QMainWindow):
             self.ui.parmlabel[0].setText(newparm.name)
             self.ui.parmlabel[0].show()
             self.ui.parmbutton[0] = QtWidgets.QPushButton(self.ui.buttonFrame)
-            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 80, 25))
+            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 120, 25))
             self.ui.parmbutton[0].setText('{0:d}'.format(newparm.value))
             self.ui.parmbutton[0].show()
 
@@ -305,7 +305,7 @@ class MainWindow(QMainWindow):
             self.ui.parmlabel[0].setText(newparm.name)
             self.ui.parmlabel[0].show()
             self.ui.parmbutton[0] = QtWidgets.QPushButton(self.ui.buttonFrame)
-            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 80, 25))
+            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 120, 25))
             self.ui.parmbutton[0].setText('{0:d}'.format(newparm.value))
             self.ui.parmbutton[0].show()
 
@@ -328,7 +328,7 @@ class MainWindow(QMainWindow):
             self.ui.parmlabel[0].setText(newparm.name)
             self.ui.parmlabel[0].show()
             self.ui.parmbutton[0] = QtWidgets.QPushButton(self.ui.buttonFrame)
-            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 80, 25))
+            self.ui.parmbutton[0].setGeometry(QtCore.QRect(xloc+130, yloc, 120, 25))
             self.ui.parmbutton[0].setText('{0:d}'.format(newparm.value))
             self.ui.parmbutton[0].show()
 
@@ -364,7 +364,7 @@ class MainWindow(QMainWindow):
                 self.ui.parmlabel[node.index].setText(node.name)
                 self.ui.parmlabel[node.index].show()
                 self.ui.parmbutton[node.index] = QtWidgets.QPushButton(self.ui.buttonFrame)
-                self.ui.parmbutton[node.index].setGeometry(QtCore.QRect(xloc+130, yloc, 80, 25))
+                self.ui.parmbutton[node.index].setGeometry(QtCore.QRect(xloc+130, yloc, 120, 25))
                 self.ui.parmbutton[node.index].setText('{0:d}'.format(node.value))
                 self.ui.parmbutton[node.index].show()
 
