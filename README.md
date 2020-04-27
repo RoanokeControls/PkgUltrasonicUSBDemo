@@ -18,3 +18,12 @@ If Python 2.7 is installed and being used as the python interpreter, change the 
 
     pip3 install UltrasonicUSBDemo
     python3 -m UltrasonicUSBDemo
+
+
+# Video Links 
+
+[Installing Python Video Link](https://slack-files.com/T0ERQ8MUG-F012LNF8PH9-d8fc45d1b9)
+[UM0090 Video Link](https://slack-files.com/T0ERQ8MUG-F012LGE405Q-3e1ec8b131)
+[UM0034-002 Video Link](https://slack-files.com/T0ERQ8MUG-F013ABJFHNU-9fecb553e0)
+[UM0017 Video Link](https://slack-files.com/T0ERQ8MUG-F012K55F39T-46b94e0ced)
+[FS-Series Video Link](https://slack-files.com/T0ERQ8MUG-F012SM7403E-534856c016)
